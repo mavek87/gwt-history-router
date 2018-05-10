@@ -5,7 +5,6 @@ import com.matteoveroni.gwthistoryrouter.client.navigation.pages.Page;
 import com.matteoveroni.gwthistoryrouter.client.navigation.pages.PageRegister;
 import static elemental2.dom.DomGlobal.console;
 import static elemental2.dom.DomGlobal.document;
-import static elemental2.dom.DomGlobal.self;
 import static elemental2.dom.DomGlobal.window;
 import elemental2.dom.HTMLDivElement;
 
@@ -30,17 +29,18 @@ public class Router {
 	}
 
 	public void listenUrlChanges() {
-		self.addEventListener("popstate", event -> {
+		window.addEventListener("popstate", event -> {
+			console.log("postate fired");
 			handleRequest(getCurrentUrl());
 		});
 	}
 
 	public static final void go(Class destinationPageClass) {
-		final String pageName = destinationPageClass.getSimpleName();
-		if (PageRegister.containsPageWithName(pageName)) {
-			final Page pageController = PageRegister.getPageByName(pageName);
-			pageController.use();
-			window.history.pushState(null, pageController.getName(), pageController.getURLHash());
+		String pageName = destinationPageClass.getSimpleName();
+		if (PageRegister.containsPageName(pageName)) {
+			Page page = PageRegister.getPageByName(pageName);
+			page.use();
+			window.history.pushState(null, page.getName(), page.getURLHash());
 		}
 	}
 
@@ -48,9 +48,9 @@ public class Router {
 		String pageHash = getPageHashFromUrl(url);
 		console.log("Router: pagehash=" + pageHash);
 
-		if (PageRegister.containsPageWithUrlHash(pageHash)) {
-			Page pageController = PageRegister.getPageByUrlHash(pageHash);
-			pageController.use();
+		if (PageRegister.containsUrlHash(pageHash)) {
+			Page page = PageRegister.getPageByUrlHash(pageHash);
+			page.use();
 		} else {
 			redirectToMainPage();
 		}

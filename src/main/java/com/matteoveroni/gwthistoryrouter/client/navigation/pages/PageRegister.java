@@ -40,7 +40,7 @@ public class PageRegister {
 		return pagesByName.get(name);
 	}
 
-	public static boolean containsPageWithName(String name) {
+	public static boolean containsPageName(String name) {
 		return pagesByName.containsKey(name);
 	}
 
@@ -48,7 +48,7 @@ public class PageRegister {
 		return pagesByUrl.get(url);
 	}
 
-	public static boolean containsPageWithUrlHash(String url) {
+	public static boolean containsUrlHash(String url) {
 		return pagesByUrl.containsKey(url);
 	}
 
