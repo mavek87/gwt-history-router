@@ -10,6 +10,7 @@ Simple and lightweight gwt module to handle routing in a single web page applica
 
 `<inherits name="com.matteoveroni.gwthistoryrouter.GwtHistoryRouter" />`
 
+
 **2. Create your pages extending the Page superclass. Example:**
 
 
@@ -60,6 +61,7 @@ public class PageOne extends Page {
 }
 ```
 
+
 **3. Populate the PageRegistry with all your pages, create a new router in your app entry point and call the router.listenUrlChanges() method to startup the router**
 
 ```
@@ -83,6 +85,7 @@ public class MyModuleEntryPoint implements EntryPoint {
 	}
 }
 ```
+
 
 **4. From your Pages you use the router as shown below. For example to go from PageOne to PageTwo call the method Router.go(SecondPage.class) in PageOne. Example:**
 
