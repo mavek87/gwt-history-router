@@ -1,0 +1,17 @@
+/dist/
+/build/
+/.nb-gradle/
+/.gradle/
+.DS_Store
+/nbproject/private/
+/frontend-service/logs
+target
+.project
+.classpath
+.metadata
+.settings
+bin
+/war/
+.errai/
+.idea/
+/out/

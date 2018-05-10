@@ -83,7 +83,7 @@ public class Router {
 	private void addRouterContainerToDom() {
 		final HTMLDivElement divRouterContainer = (HTMLDivElement) document.createElement(DivElement.TAG);
 		divRouterContainer.id = DIV_ROUTER_CONTAINER_NAME;
-		divRouterContainer.style.setProperty("min-height","100%");
+		divRouterContainer.style.setProperty("min-height", "100%");
 		document.body.appendChild(divRouterContainer);
 	}
 }
