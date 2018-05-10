@@ -26,15 +26,12 @@ dependencies {
 gwt {
     gwtVersion = '2.8.2'
     modules 'com.matteoveroni.gwthistoryrouter.GwtHistoryRouter'
+    minHeapSize = "256M" 
+    maxHeapSize = "1024M"
 
     compiler {
         localWorkers = 2
         disableCastChecking = true
-    }
-
-    superDev {
-        noPrecompile = true
-        launcherDir = file("$buildDir/gwt/out/secondomodulo")
     }
 }
 
