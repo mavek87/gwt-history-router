@@ -1,0 +1,61 @@
+apply plugin: 'java'
+apply plugin: 'gwt'
+apply plugin: 'war'
+apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.wisepersist:gwt-gradle-plugin:1.0.6'
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.google.gwt', name: 'gwt-user', version: '2.8.2'
+    compile group: 'org.ow2.asm', name: 'asm', version: '5.0.3'
+    compile group: 'com.google.elemental2', name: 'elemental2-core', version: '1.0.0-RC1'
+    compile group: 'com.google.elemental2', name: 'elemental2-dom', version: '1.0.0-RC1'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+gwt {
+    gwtVersion = '2.8.2'
+    modules 'com.matteoveroni.gwthistoryrouter.GwtHistoryRouter'
+    minHeapSize = "256M"
+    maxHeapSize = "1024M"
+
+    compiler {
+        localWorkers = 2
+        // Velocizzano la compilazione. Da rimuovere dall'applicazione in produzione        
+        optimize = 0
+        incremental = true
+        draftCompile = true
+        // "PRETTY", "DETAILED", "OBFUSCATED" (default - veloce esecuzione)
+        style = "PRETTY"
+        // Velocizza esecuzione, ma rallenta compilazione
+        // disableCastChecking = true
+        /** *****************************/
+    }
+
+    superDev {
+        noPrecompile = true
+        launcherDir = file("$buildDir/gwt/out/secondomodulo")
+    }
+
+    gretty {
+        contextPath = 'app'
+        servletContainer = 'jetty9'
+        loggingLevel = "DEBUG"
+        logDir = "$buildDir/logs"
+        jvmArgs = ['-Xms1024M', '-Xmx1024M']
+    }
+}
+
