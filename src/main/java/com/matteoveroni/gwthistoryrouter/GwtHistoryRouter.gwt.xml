@@ -5,11 +5,6 @@
 
 <module rename-to='gwthistoryrouter'>
     <inherits name='com.google.gwt.user.User'/>
-    <inherits name="com.google.gwt.logging.Logging"/>
-    <inherits name="com.google.gwt.resources.Resources" />
-    
-    <set-property name="gwt.logging.enabled" value="TRUE"/>
-    <set-property name="gwt.logging.logLevel" value="ALL"/>
     
     <inherits name="elemental2.core.Core"/>
     <inherits name="elemental2.dom.Dom"/>

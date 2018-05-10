@@ -18,7 +18,7 @@ public class Router {
 	public Router(String appUrl, String appStartingPageHash) {
 		this.appUrl = appUrl;
 
-		addRouterContainerToDom();
+		addRouterContainerToDOM();
 
 		String url = getCurrentUrl();
 		if (url.equals(appUrl)) {
@@ -80,7 +80,7 @@ public class Router {
 		return window.location.getOrigin() + window.location.getPathname() + window.location.getHash();
 	}
 
-	private void addRouterContainerToDom() {
+	private void addRouterContainerToDOM() {
 		final HTMLDivElement divRouterContainer = (HTMLDivElement) document.createElement(DivElement.TAG);
 		divRouterContainer.id = DIV_ROUTER_CONTAINER_NAME;
 		divRouterContainer.style.setProperty("min-height", "100%");
