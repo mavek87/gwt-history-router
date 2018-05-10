@@ -28,7 +28,6 @@ public abstract class Page {
 
 	public void showHTML() {
 		final HTMLDivElement divRouterContainer = (HTMLDivElement) document.getElementById(Router.DIV_ROUTER_CONTAINER_NAME);
-		divRouterContainer.innerHTML = "";
 		divRouterContainer.innerHTML = getHtmlText();
 	}
 }
