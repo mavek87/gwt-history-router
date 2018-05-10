@@ -4,17 +4,17 @@ Simple and lightweight gwt module to handle routing in a single web page applica
 
 ***
 
-### Usage
+## Usage
 
-**1. Import the module in your gwt.xml file:**
+### 1. Import the module in your gwt.xml file:
 
 `<inherits name="com.matteoveroni.gwthistoryrouter.GwtHistoryRouter" />`
 
 
-**2. Create your pages extending the Page superclass. Example:**
+### 2. Create your pages extending the Page superclass. Example:
 
 
-### PageOne.html (HTML Template/View)
+**PageOne.html (HTML Template/View)**
 ```
 <div id="pageOneId" style="border: 5px solid red;">
     <div>Page One</div>
@@ -22,7 +22,7 @@ Simple and lightweight gwt module to handle routing in a single web page applica
 </div>
 ```
 
-### PageOne.java (Controller)
+**PageOne.java (Controller)**
 ```
 public class PageOne extends Page {
 	
@@ -62,7 +62,7 @@ public class PageOne extends Page {
 ```
 
 
-**3. Populate the PageRegistry with all your pages, create a new router in your app entry point and call the router.listenUrlChanges() method to startup the router**
+### 3. Populate the PageRegistry with all your pages, create a new router in your app entry point and call the router.listenUrlChanges() method to startup the router
 
 ```
 public class MyModuleEntryPoint implements EntryPoint {
@@ -87,7 +87,7 @@ public class MyModuleEntryPoint implements EntryPoint {
 ```
 
 
-**4. From your Pages you use the router as shown below. For example to go from PageOne to PageTwo call the method Router.go(SecondPage.class) in PageOne. Example:**
+### 4. From your Pages you use the router as shown below. For example to go from PageOne to PageTwo call the method Router.go(SecondPage.class) in PageOne. Example:
 
 ```
 HTMLButtonElement button = (HTMLButtonElement) document.getElementById("btn");
