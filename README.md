@@ -2,6 +2,8 @@
 
 Simple and lightweight gwt module to handle routing in a single web page application
 
+***
+
 ### Usage
 
 **1. Import the module in your gwt.xml file:**
