@@ -1,6 +1,6 @@
 package com.matteoveroni.gwthistoryrouter.client.navigation.pages;
 
-import com.matteoveroni.gwthistoryrouter.client.navigation.Router;
+import com.matteoveroni.gwthistoryrouter.client.navigation.routing.GwtRouter;
 import static elemental2.dom.DomGlobal.document;
 import elemental2.dom.HTMLDivElement;
 
@@ -27,7 +27,7 @@ public abstract class Page {
 	}
 
 	public void showHTML() {
-		final HTMLDivElement divRouterContainer = (HTMLDivElement) document.getElementById(Router.DIV_ROUTER_CONTAINER_NAME);
+		final HTMLDivElement divRouterContainer = (HTMLDivElement) document.getElementById(GwtRouter.DIV_ROUTER_CONTAINER_NAME);
 		divRouterContainer.innerHTML = getHtmlText();
 	}
 }

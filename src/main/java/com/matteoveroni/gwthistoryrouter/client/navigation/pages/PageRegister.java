@@ -6,8 +6,8 @@ import java.util.Map;
 
 public class PageRegister {
 
-	private static final Map<String, Page> pagesByName = new HashMap<>();
-	private static final Map<String, Page> pagesByUrl = new HashMap<>();
+	private static final Map<String, Page> PAGES_BY_NAME = new HashMap<>();
+	private static final Map<String, Page> PAGES_BY_URL = new HashMap<>();
 
 	private static Page mainPage;
 
@@ -20,8 +20,8 @@ public class PageRegister {
 	}
 
 	public static final void addPage(Page page) {
-		pagesByName.put(page.getName(), page);
-		pagesByUrl.put(page.getURLHash(), page);
+		PAGES_BY_NAME.put(page.getName(), page);
+		PAGES_BY_URL.put(page.getURLHash(), page);
 	}
 
 	public static final void addPages(Page... pages) {
@@ -37,23 +37,23 @@ public class PageRegister {
 	}
 
 	public static Page getPageByName(String name) {
-		return pagesByName.get(name);
+		return PAGES_BY_NAME.get(name);
 	}
 
 	public static boolean containsPageName(String name) {
-		return pagesByName.containsKey(name);
+		return PAGES_BY_NAME.containsKey(name);
 	}
 
 	public static Page getPageByUrlHash(String url) {
-		return pagesByUrl.get(url);
+		return PAGES_BY_URL.get(url);
 	}
 
 	public static boolean containsUrlHash(String url) {
-		return pagesByUrl.containsKey(url);
+		return PAGES_BY_URL.containsKey(url);
 	}
 
 	public static void removePages() {
-		pagesByName.clear();
-		pagesByUrl.clear();
+		PAGES_BY_NAME.clear();
+		PAGES_BY_URL.clear();
 	}
 }
