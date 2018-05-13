@@ -62,7 +62,7 @@ public class PageOne extends Page {
 ```
 
 
-### 3. Populate the PageRegistry with all your pages, create a new router in your app entry point and call the router.listenUrlChanges() method to startup the router
+### 3. Populate the PageRegistry with all your pages, create a new router in your app entry point and call the Router.getInstance().listenUrlChanges() method to startup the router
 
 ```
 public class MyModuleEntryPoint implements EntryPoint {
@@ -72,8 +72,10 @@ public class MyModuleEntryPoint implements EntryPoint {
 	@Override
 	public void onModuleLoad() {
 		populatePageRegister();
-		Router router = new Router(APP_URL, PageRegister.getMainPage().getURLHash());
-		router.listenUrlChanges();
+		// You can use RouterType.GWT_ROUTER or RouterType.ELEMENTAL_ROUTER
+		// But the elemental router uses html5 popstate which doesn't works well on old browser like IE 11 or above.
+		Router.setup(RouterType.GWT_ROUTER, APP_URL, PageRegister.getMainPage().getURLHash());
+		Router.getInstance().listenUrlChanges();
 	}
 
 	private void populatePageRegister() {
@@ -87,12 +89,12 @@ public class MyModuleEntryPoint implements EntryPoint {
 ```
 
 
-### 4. From your Pages you use the router as shown below. For example to go from PageOne to PageTwo call the method Router.go(SecondPage.class) in PageOne. Example:
+### 4. From your Pages you use the router as shown below. For example to go from PageOne to PageTwo call the method Router.getInstance().go(SecondPage.class) in PageOne. Example:
 
 ```
 HTMLButtonElement button = (HTMLButtonElement) document.getElementById("btn");
 button.addEventListener(BrowserEvents.CLICK, clickEvent -> {
-	Router.go(SecondPage.class);
+	Router.getInstance().go(SecondPage.class);
 });
 ```
 
